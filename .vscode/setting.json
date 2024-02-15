@@ -1,0 +1,13 @@
+{
+	"haskell.checkProject": true,
+	"haskell.formattingProvider": "ormolu",
+	"haskell.indentationRules.enabled": true,
+	"haskell.liquidOn": false,
+	"haskell.checkParents": "CheckOnSave",
+	"haskell.maxCompletions": 40,
+	"haskell.openDocumentationInHackage": false,
+	"haskell.openSourceInHackage": false,
+	"haskell.trace.client": "error",
+	"haskell.trace.server": "off",
+	"haskell.upgradeGHCup": true
+}
