@@ -1,0 +1,30 @@
+workspaceName: snct2024
+timeZone: Asia/Tokyo
+saveRepliesBefore: "5w"
+targetChannels:
+  C067YFG5V1V: 執行部
+  C068RKLAPBK: SNS
+  C06CW8GRP9B: デザインテーマ
+  C064NGEBXD3: リーダー
+  C068BMRRW1Y: システム
+  C068BB5T719: 物品_バザー
+  C068LNH9Z9B: web-design
+  C06852XGN6S: ゲームイベント
+  C068BE3Q398: ライブ
+  C06496CQ33P: 全体連絡
+  C068BB6HEJF: 音響
+  C0690FHE4RW: 本部イベント
+  C064EHHCGKW: 一般連絡
+  C067YGWD44F: 美術
+  C0688G6H2JH: パンフレット
+  C068Q36CQ8H: ステージイベント
+  C068RKPPV9A: 協賛
+  C068D35LM42: 大工
+  C0688PTSX0V: 総務
+  C067X628HGF: グッズ
+  C067WTSQCP9: 美術_大工
+  C067WTX5BF1: 経理
+templatePaths:
+  indexPage: templates/index.mustache.html
+  messagesPage: templates/messages.mustache.html
+  threadPage: templates/thread.mustache.html
