@@ -44,6 +44,14 @@ jobs:
         run: ls -lha ./docs/json
       - name: Debug
         run: ls -lha ./docs/html
+      - name: Setup | chown to runner
+        run: sudo chown -R runner:docker ./docs
+      - name: Debug
+        run: ls -lha ./docs
+      - name: Debug
+        run: ls -lha ./docs/json
+      - name: Debug
+        run: ls -lha ./docs/html
       #- name: Run | Archive Slack
       #  run: stack build --exec 'slack-archive save'
       #  env:
