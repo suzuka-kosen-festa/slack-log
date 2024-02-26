@@ -15,49 +15,33 @@ jobs:
     steps:
       - name: Setup | Checkout
         uses: actions/checkout@v4.1.1
-      #- name: Setup | Cache Stack
-      #  id: cache-stack
-      #  uses: actions/cache@v4.0.0
-      #  with:
-      #    path: ~/.stack
-      #    key: ${{ runner.os }}-stack-${{ hashFiles('**/package.yaml') }}-${{ hashFiles('**/stack.yaml.lock') }}
-      #    restore-keys: |
-      #      ${{ runner.os }}-stack-
-      #- name: Setup | Stack and GHC
-      #  uses: haskell-actions/setup@v2.6.1
-      #  with:
-      #    ghc-version: 8.10.4 # stack.yamlのresolverに合わせて更新してください
-      #    enable-stack: true
-      #    stack-version: latest
-      - name: Debug
-        run: whoami
-      - name: Debug
-        run: ls -lha ./docs
+      - name: Setup | Cache Stack
+        id: cache-stack
+        uses: actions/cache@v4.0.0
+        with:
+          path: ~/.stack
+          key: ${{ runner.os }}-stack-${{ hashFiles('**/package.yaml') }}-${{ hashFiles('**/stack.yaml.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-stack-
+      - name: Setup | Stack and GHC
+        uses: haskell-actions/setup@v2.6.1
+        with:
+          ghc-version: 8.10.4 # stack.yamlのresolverに合わせて更新してください
+          enable-stack: true
+          stack-version: latest
       - name: Setup | Pull objects from R2
         uses: ./.github/actions/rclone
         with:
           config: ${{ secrets.RCLONE_CONFIG }}
           args: "copy r2:suzuka-kosen-festa-slack-log ./docs"
-      - name: Debug
-        run: ls -lha ./docs
-      - name: Debug
-        run: ls -lha ./docs/json
-      - name: Debug
-        run: ls -lha ./docs/html
       - name: Setup | chown to runner
         run: sudo chown -R runner:docker ./docs
-      - name: Debug
-        run: ls -lha ./docs
-      - name: Debug
-        run: ls -lha ./docs/json
-      - name: Debug
-        run: ls -lha ./docs/html
-      #- name: Run | Archive Slack
-      #  run: stack build --exec 'slack-archive save'
-      #  env:
-      #    SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
-      #- name: Run | Upload Archive
-      #  uses: ./.github/actions/rclone
-      #  with:
-      #    config: ${{ secrets.RCLONE_CONFIG }}
-      #    args: "copy ./docs r2:suzuka-kosen-festa-slack-log"
+      - name: Run | Archive Slack
+        run: stack build --exec 'slack-archive save'
+        env:
+          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
+      - name: Run | Upload Archive
+        uses: ./.github/actions/rclone
+        with:
+          config: ${{ secrets.RCLONE_CONFIG }}
+          args: "copy ./docs r2:suzuka-kosen-festa-slack-log"
