@@ -1,6 +1,6 @@
 workspaceName: snct2024
 timeZone: Asia/Tokyo
-saveRepliesBefore: "10w"
+saveRepliesBefore: "5w"
 targetChannels:
   C067YFG5V1V: 執行部
   C068RKLAPBK: SNS
