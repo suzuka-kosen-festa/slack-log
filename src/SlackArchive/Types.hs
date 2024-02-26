@@ -2,8 +2,8 @@
 {-# LANGUAGE DeriveGeneric  #-}
 {-# LANGUAGE StrictData     #-}
 
-module SlackLog.Types
-  ( module SlackLog.Duration
+module SlackArchive.Types
+  ( module SlackArchive.Duration
   , Config (..)
   , TemplatePaths (..)
   , TargetChannels
@@ -13,12 +13,12 @@ module SlackLog.Types
   , ChannelId
   ) where
 
-import qualified Data.Aeson          as Json
-import qualified Data.HashMap.Strict as HM
-import qualified Data.Text           as T
-import           GHC.Generics        (Generic)
+import qualified Data.Aeson            as Json
+import qualified Data.HashMap.Strict   as HM
+import qualified Data.Text             as T
+import           GHC.Generics          (Generic)
 
-import           SlackLog.Duration
+import           SlackArchive.Duration
 
 
 -- | Configuration type used mainly when converting JSON files into HTML.

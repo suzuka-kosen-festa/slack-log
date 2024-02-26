@@ -39,13 +39,13 @@ import qualified Web.Slack.Conversation   as Conversation
 import qualified Web.Slack.Pager          as Slack
 import qualified Web.Slack.User           as User
 
-import           SlackLog.Html
-import           SlackLog.Pagination      (chooseLatestPageOf, defaultPageSize,
+import           SlackArchive.Html
+import           SlackArchive.Pagination  (chooseLatestPageOf, defaultPageSize,
                                            paginateFiles)
-import           SlackLog.Replies
-import           SlackLog.Types           (ChannelId, Config (..),
+import           SlackArchive.Replies
+import           SlackArchive.Types       (ChannelId, Config (..),
                                            Duration (..), targetChannels)
-import           SlackLog.Util            (failWhenLeft, readJsonFile)
+import           SlackArchive.Util        (failWhenLeft, readJsonFile)
 import           UI.Butcher.Monadic       (addCmd, addCmdImpl, addHelpCommand,
                                            addSimpleBoolFlag, flagHelpStr,
                                            mainFromCmdParserWithHelpDesc)
@@ -86,7 +86,7 @@ main = do
 
 saveCmd :: IO ()
 saveCmd = do
-  config <- Yaml.decodeFileThrow "slack-log.yaml"
+  config <- Yaml.decodeFileThrow "slack-archive.yaml"
   apiConfig <- Slack.mkSlackConfig . slackApiToken =<< failWhenLeft =<< decodeEnv
 
   Dir.withCurrentDirectory "docs" $ do
@@ -153,7 +153,7 @@ saveReplies Config { saveRepliesBefore = Duration before } now convId = do
 -- | Assumes the current directory is the project root
 generateHtmlCmd :: Bool -> IO ()
 generateHtmlCmd onlyIndex = do
-  logConfig <- Yaml.decodeFileThrow "slack-log.yaml"
+  logConfig <- Yaml.decodeFileThrow "slack-archive.yaml"
   Dir.withCurrentDirectory "docs" $ do
     ws <- loadWorkspaceInfo logConfig "json"
 

@@ -1,4 +1,4 @@
-module SlackLog.Replies
+module SlackArchive.Replies
   ( searchThreadsAppendedSince,
     dropThreadMessage,
     appendToThreadFile,

@@ -1,6 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-module SlackLog.HtmlSpec
+module SlackArchive.HtmlSpec
   ( spec
   ) where
 
@@ -12,17 +12,17 @@ import qualified Data.Yaml          as Yaml
 import qualified System.Directory   as Dir
 import           Test.Hspec
 
-import           SlackLog.Html
+import           SlackArchive.Html
 
 
 spec :: Spec
 spec = do
   w <- runIO $ do
-    config <- Yaml.decodeFileThrow "slack-log.yaml"
+    config <- Yaml.decodeFileThrow "slack-archive.yaml"
     loadWorkspaceInfo config "test/assets"
 
   let idOfRandom = "C4M4TT8JJ"
-  -- The random channel configured in slack-log.yaml
+  -- The random channel configured in slack-archive.yaml
       p = PageInfo
         { pageNumber       = 35
         , thisPagePath     = "/html/35.html"

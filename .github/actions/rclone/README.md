@@ -7,7 +7,7 @@ Run [rclone](https://rclone.org) to sync files and directories from different cl
 ```yaml
 ---
 name: "🔄 Rclone"
-# Working example: https://github.com/suzuka-kosen-festa/slack-log/blob/main/.github/workflows/cron.yml
+# Working example: https://github.com/suzuka-kosen-festa/slack-archive/blob/main/.github/workflows/cron.yml
 name: Backup Slack
 
 on:
@@ -40,7 +40,7 @@ jobs:
           enable-stack: true
           stack-version: latest
       - name: Run | Archive Slack
-        run: stack build --exec 'slack-log save'
+        run: stack build --exec 'slack-archive save'
         env:
           SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
       - name: Run | Upload Archive

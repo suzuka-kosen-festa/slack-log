@@ -1,7 +1,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TypeApplications  #-}
 
-module SlackLog.DurationSpec
+module SlackArchive.DurationSpec
   ( spec
   ) where
 
@@ -15,7 +15,7 @@ import           Test.Hspec.QuickCheck
 import           Test.QuickCheck       (arbitrary, forAll)
 import qualified Test.QuickCheck       as QC
 
-import           SlackLog.Duration
+import           SlackArchive.Duration
 
 
 spec :: Spec

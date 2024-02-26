@@ -1,7 +1,7 @@
 {-# LANGUAGE ScopedTypeVariables #-}
 {-# LANGUAGE TypeApplications    #-}
 
-module SlackLog.Pagination
+module SlackArchive.Pagination
   ( NamedPage (..),
     Name,
     FileObj (..),

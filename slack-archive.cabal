@@ -1,5 +1,5 @@
 cabal-version:  2.4
-name:           slack-log
+name:           slack-archive
 version:        0.1.0.0
 author:         Rintaro Itokawa
 maintainer:     me@re-taro.dev
@@ -17,7 +17,7 @@ extra-source-files:
 
 source-repository head
   type: git
-  location: https://github.com/suzuka-kosen-festa/slack-log
+  location: https://github.com/suzuka-kosen-festa/slack-archive
 
 common common
   build-depends:
@@ -48,12 +48,12 @@ common common
 library
   import: common
   exposed-modules:
-      SlackLog.Duration
-      SlackLog.Html
-      SlackLog.Pagination
-      SlackLog.Replies
-      SlackLog.Types
-      SlackLog.Util
+      SlackArchive.Duration
+      SlackArchive.Html
+      SlackArchive.Pagination
+      SlackArchive.Replies
+      SlackArchive.Types
+      SlackArchive.Util
       Web.Slack.Instances
   hs-source-dirs:
       src
@@ -62,30 +62,30 @@ library
     , witherable
   default-language: Haskell2010
 
-executable slack-log
+executable slack-archive
   import: common
   main-is: Main.hs
   other-modules:
-      Paths_slack_log
+      Paths_slack_archive
   hs-source-dirs:
       app
   build-depends:
-    , slack-log
+    , slack-archive
     , slack-web
 
-test-suite slack-log-test
+test-suite slack-archive-test
   import: common
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
-      SlackLog.DurationSpec
-      SlackLog.HtmlSpec
-      SlackLog.PaginationSpec
-      SlackLog.RepliesSpec
+      SlackArchive.DurationSpec
+      SlackArchive.HtmlSpec
+      SlackArchive.PaginationSpec
+      SlackArchive.RepliesSpec
       Web.Slack.InstancesSpec
-      Paths_slack_log
+      Paths_slack_archive
   hs-source-dirs:
       test
   build-depends:
     , hspec
-    , slack-log
+    , slack-archive

@@ -1,6 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-module SlackLog.Duration where
+module SlackArchive.Duration where
 
 import           Control.Monad   (when)
 import qualified Data.Aeson      as Json
@@ -12,7 +12,7 @@ newtype Duration = Duration { asNominalDiffTime :: C.NominalDiffTime }
   deriving (Eq, Show)
 
 instance Json.FromJSON Duration where
-  parseJSON = Json.withText "SlackLog.Duration" $ \t -> either fail pure $ do
+  parseJSON = Json.withText "SlackArchive.Duration" $ \t -> either fail pure $ do
     (i, left) <- TR.decimal t
     when (i < 1) $ Left "duration must be positive"
     scale <-
