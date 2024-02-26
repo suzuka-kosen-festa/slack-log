@@ -33,7 +33,7 @@ jobs:
         uses: ./.github/actions/rclone
         with:
           config: ${{ secrets.RCLONE_CONFIG }}
-          args: "sync r2:suzuka-kosen-festa-slack-log ./docs"
+          args: "copy r2:suzuka-kosen-festa-slack-log ./docs"
       - name: Run | Archive Slack
         run: stack build --exec 'slack-archive save'
         env:
@@ -42,4 +42,4 @@ jobs:
         uses: ./.github/actions/rclone
         with:
           config: ${{ secrets.RCLONE_CONFIG }}
-          args: "sync ./docs r2:suzuka-kosen-festa-slack-log"
+          args: "copy ./docs r2:suzuka-kosen-festa-slack-log"
