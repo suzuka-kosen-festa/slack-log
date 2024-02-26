@@ -1,6 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-module SlackLog.RepliesSpec
+module SlackArchive.RepliesSpec
   ( spec
   ) where
 
@@ -12,7 +12,7 @@ import           Web.Slack.Common      (ConversationId (..), Message (..),
                                         MessageType (..), SlackMessageText (..),
                                         UserId (..), mkSlackTimestamp)
 
-import           SlackLog.Replies
+import           SlackArchive.Replies
 
 
 spec :: Spec

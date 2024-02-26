@@ -1,4 +1,4 @@
-module SlackLog.Util where
+module SlackArchive.Util where
 
 import qualified Data.Aeson as Json
 

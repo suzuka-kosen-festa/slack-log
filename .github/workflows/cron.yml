@@ -35,7 +35,7 @@ jobs:
           config: ${{ secrets.RCLONE_CONFIG }}
           args: "sync r2:suzuka-kosen-festa-slack-log ./docs"
       - name: Run | Archive Slack
-        run: stack build --exec 'slack-log save'
+        run: stack build --exec 'slack-archive save'
         env:
           SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
       - name: Run | Upload Archive

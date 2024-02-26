@@ -8,7 +8,7 @@
 
 -- | Assumes functions in this module are executed in doc/ directory
 
-module SlackLog.Html
+module SlackArchive.Html
   ( convertJsonsInChannel
   , generateIndexHtml
   , collectTargetJsons
@@ -50,9 +50,9 @@ import qualified Web.Slack.Common        as Slack
 import qualified Web.Slack.MessageParser as Slack
 import           Witherable              (wither)
 
-import           SlackLog.Types          (ChannelId, ChannelName, Config (..),
+import           SlackArchive.Types      (ChannelId, ChannelName, Config (..),
                                           TemplatePaths (..), UserId, UserName)
-import           SlackLog.Util           (failWhenLeft, readJsonFile)
+import           SlackArchive.Util       (failWhenLeft, readJsonFile)
 
 import           Prelude                 hiding (pi)
 

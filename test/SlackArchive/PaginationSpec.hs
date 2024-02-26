@@ -1,4 +1,4 @@
-module SlackLog.PaginationSpec
+module SlackArchive.PaginationSpec
   ( spec
   )
 where
@@ -9,7 +9,7 @@ import           Test.Hspec
 import           Test.Hspec.QuickCheck
 import qualified Test.QuickCheck       as QC
 
-import           SlackLog.Pagination
+import           SlackArchive.Pagination
 
 
 spec :: Spec
