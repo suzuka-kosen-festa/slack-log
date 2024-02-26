@@ -29,6 +29,11 @@ jobs:
           ghc-version: 8.10.4 # stack.yamlのresolverに合わせて更新してください
           enable-stack: true
           stack-version: latest
+      - name: Setup | Pull objects from R2
+        uses: ./.github/actions/rclone
+        with:
+          config: ${{ secrets.RCLONE_CONFIG }}
+          args: "sync r2:suzuka-kosen-festa-slack-log ./docs"
       - name: Run | Archive Slack
         run: stack build --exec 'slack-log save'
         env:
