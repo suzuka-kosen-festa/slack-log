@@ -3,8 +3,8 @@ timeZone: Asia/Tokyo
 saveRepliesBefore: "13w"
 targetChannels:
   #  C067YFG5V1V: 執行部
-  C068RKLAPBK: SNS
-#  C06CW8GRP9B: デザインテーマ
+  #  C068RKLAPBK: SNS
+  C06CW8GRP9B: デザインテーマ
 #  C064NGEBXD3: リーダー
 #  C068BMRRW1Y: システム
 #  C068BB5T719: 物品_バザー
