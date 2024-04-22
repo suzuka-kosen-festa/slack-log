@@ -24,6 +24,8 @@ targetChannels:
   C067X628HGF: グッズ
   C067WTSQCP9: 美術_大工
   C067WTX5BF1: 経理
+  C06UTQTTTS5: 配信
+  C06UUN5N2BE: チャンネル名:本部イベント-アイデア
 templatePaths:
   indexPage: templates/index.mustache.html
   messagesPage: templates/messages.mustache.html
