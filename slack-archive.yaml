@@ -28,6 +28,7 @@ targetChannels:
   C06UUN5N2BE: 本部イベント-アイデア
   C06N59G5A2V: origamiさん連絡用
   C06RE85AB71: ステイベ管轄
+  C0711FAJ61W: 執行部_高専祭コアシステム
 templatePaths:
   indexPage: templates/index.mustache.html
   messagesPage: templates/messages.mustache.html
