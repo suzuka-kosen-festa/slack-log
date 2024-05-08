@@ -29,6 +29,7 @@ targetChannels:
   C06N59G5A2V: origamiさん連絡用
   C06RE85AB71: ステイベ管轄
   C0711FAJ61W: 執行部_高専祭コアシステム
+  C072DGMGY5B: sns_投稿確認用
 templatePaths:
   indexPage: templates/index.mustache.html
   messagesPage: templates/messages.mustache.html
