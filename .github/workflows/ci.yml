@@ -9,7 +9,7 @@ jobs:
   deps-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.1.4
+      - uses: actions/checkout@v4.1.6
       - name: Cache .stack
         id: cache-stack
         uses: actions/cache@v4.0.2
@@ -29,7 +29,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.1.4
+      - uses: actions/checkout@v4.1.6
       - name: Cache .stack
         id: cache-stack
         uses: actions/cache@v4.0.2
