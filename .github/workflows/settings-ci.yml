@@ -44,7 +44,7 @@ jobs:
           echo ${{ steps.yq_list.outputs.result }} | ( echo ${{ steps.yq_reg.outputs.result }} | diff /dev/fd/3 -) 3<&0
           exit 1
 
-  yamlLint:
+  yamllint:
     needs: check_files_changed
     if: needs.check_files_changed.outputs.only_changed == 'true'
     runs-on: ubuntu-latest
@@ -57,7 +57,7 @@ jobs:
           yamllint_flags: "slack-archive.yaml"
 
   approve:
-    needs: [validate, yamlLint]
+    needs: [validate, yamllint]
     runs-on: ubuntu-latest
     steps:
       - name: Approve a PR
