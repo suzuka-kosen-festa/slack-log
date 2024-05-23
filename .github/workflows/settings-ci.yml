@@ -20,9 +20,9 @@ jobs:
         run: |
           files=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
           if [[ "$files" == "slack-archive.yaml" ]]; then
-            echo "only_changed=true" >> $GITHUB_ENV
+            echo "only_changed=true" >> $GITHUB_OUTPUT
           else
-            echo "only_changed=false" >> $GITHUB_ENV
+            echo "only_changed=false" >> $GITHUB_OUTPUT
   validate:
     needs: check_files_changed
     if: needs.check_files_changed.outputs.only_changed == 'true'
