@@ -1,0 +1,67 @@
+name: Validate Settings
+
+on:
+  pull_request:
+    paths:
+      - "slack-archive.yaml"
+
+permissions:
+  pull-requests: write
+
+jobs:
+  check_files_changed:
+    runs-on: ubuntu-latest
+    outputs:
+      only_changed: ${{ steps.check.outputs.only_changed }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check if only slack-archive.yaml changed
+        id: check
+        run: |
+          files=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
+          if [[ "$files" == "slack-archive.yaml" ]]; then
+            echo "only_changed=true" >> $GITHUB_ENV
+          else
+            echo "only_changed=false" >> $GITHUB_ENV
+  validate:
+    needs: check_files_changed
+    if: needs.check_files_changed.outputs.only_changed == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: mikefarah/yq@master
+        id: yq_list
+        with:
+          cmd: yq eval '.targetChannels' slack-archive.yaml
+      - uses: mikefarah/yq@master
+        id: yq_reg
+        with:
+          cmd: yq eval '.targetChannels | with_entries(select(.key|test("^C[A-Z0-9]{10}") and .value != null))' slack-archive.yaml
+      - name: Validate targetChannels
+        if: steps.yq_list.outputs.result != steps.yq_reg.outputs.result
+        run: |
+          echo "Validation failed."
+          echo ${{ steps.yq_list.outputs.result }} | ( echo ${{ steps.yq_reg.outputs.result }} | diff /dev/fd/3 -) 3<&0
+          exit 1
+
+  yamlLint:
+    needs: check_files_changed
+    if: needs.check_files_changed.outputs.only_changed == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: yamllint
+        uses: reviewdog/action-yamllint@v1
+        with:
+          github_token: ${{ secrets.github_token }}
+          yamllint_flags: "slack-archive.yaml"
+
+  approve:
+    needs: [validate, yamlLint]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Approve a PR
+        run: gh pr review --approve "$PR_URL"
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
