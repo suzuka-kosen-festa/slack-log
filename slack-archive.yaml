@@ -31,6 +31,10 @@ targetChannels:
   C0711FAJ61W: 執行部_高専祭コアシステム
   C072DGMGY5B: sns_投稿確認用
   C0757NSAXNC: 協賛実行メンバー
+  C078YGUQ23S: 協賛実行-aグループ
+  C078C7PTZC4: 協賛実行-bグループ
+  C078YGUT940: 協賛実行-cグループ
+  C078C7L6VTN: 協賛実行-dグループ
 templatePaths:
   indexPage: templates/index.mustache.html
   messagesPage: templates/messages.mustache.html
