@@ -15,6 +15,8 @@ jobs:
       only_changed: ${{ steps.check.outputs.only_changed }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
       - name: Check if only slack-archive.yaml changed
         id: check
         run: |
@@ -23,6 +25,7 @@ jobs:
             echo "only_changed=true" >> $GITHUB_OUTPUT
           else
             echo "only_changed=false" >> $GITHUB_OUTPUT
+          fi
   validate:
     needs: check_files_changed
     if: needs.check_files_changed.outputs.only_changed == 'true'
