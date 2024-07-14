@@ -54,7 +54,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: yamllint
-        uses: reviewdog/action-yamllint@v1.16.0
+        uses: reviewdog/action-yamllint@v1.18.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           yamllint_flags: "slack-archive.yaml"
