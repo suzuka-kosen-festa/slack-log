@@ -18,7 +18,7 @@ jobs:
           key: ${{ runner.os }}-stack-${{ hashFiles('**/package.yaml') }}-${{ hashFiles('**/stack.yaml.lock') }}
           restore-keys: |
             ${{ runner.os }}-stack-
-      - uses: haskell-actions/setup@v2.7.4
+      - uses: haskell-actions/setup@v2.7.6
         name: Setup Haskell
         with:
           ghc-version: 8.10.4 # stack.yamlのresolverに合わせて更新してください
@@ -38,7 +38,7 @@ jobs:
           key: ${{ runner.os }}-stack-${{ hashFiles('**/package.yaml') }}-${{ hashFiles('**/stack.yaml.lock') }}
           restore-keys: |
             ${{ runner.os }}-stack-
-      - uses: haskell-actions/setup@v2.7.4
+      - uses: haskell-actions/setup@v2.7.6
         name: Setup Haskell
         with:
           ghc-version: 8.10.4 # stack.yamlのresolverに合わせて更新してください
