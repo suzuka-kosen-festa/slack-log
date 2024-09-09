@@ -36,6 +36,7 @@ targetChannels:
   C078YGUT940: 協賛実行-cグループ
   C078C7L6VTN: 協賛実行-dグループ
   C07A2RQH2MN: 会計処理チャンネル
+  C07JHME3AG3: 新協賛
 templatePaths:
   indexPage: templates/index.mustache.html
   messagesPage: templates/messages.mustache.html
