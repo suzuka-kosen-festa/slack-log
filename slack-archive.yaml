@@ -37,6 +37,19 @@ targetChannels:
   C078C7L6VTN: 協賛実行-dグループ
   C07A2RQH2MN: 会計処理チャンネル
   C07JHME3AG3: 新協賛
+  C07RKPKQAJ0: プリントサービス
+  C0688H08JN9: botテスト用チャンネル
+  C07R2C0MPKJ: choochootrain
+  C07QDH76MA7: じょいふる
+  C07QDJE6YHG: dengerholic
+  C07QDJTTF7C: girlfriend
+  C07QS9U4F5F: iwonder
+  C07R2D9KBNU: tomboy
+  C07QAQ8ET6H: はいよろこんで
+  C07Q71C53LN: キスミーパティシエ
+  C07GYV97V9V: システム-ゲームイベント-フィナーレ
+  C079S4DBHSB: 会計メモ用
+  C06JZT50PCL: 渉外
 templatePaths:
   indexPage: templates/index.mustache.html
   messagesPage: templates/messages.mustache.html
