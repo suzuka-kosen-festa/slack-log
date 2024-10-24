@@ -50,6 +50,7 @@ targetChannels:
   C07GYV97V9V: システム-ゲームイベント-フィナーレ
   C079S4DBHSB: 会計メモ用
   C06JZT50PCL: 渉外
+  C07T8DA75AQ: 本部イベント-フォーム
 templatePaths:
   indexPage: templates/index.mustache.html
   messagesPage: templates/messages.mustache.html
