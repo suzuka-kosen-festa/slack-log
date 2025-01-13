@@ -24,7 +24,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-stack-
       - name: Setup | Stack and GHC
-        uses: haskell-actions/setup@v2.7.6
+        uses: haskell-actions/setup@v2.7.9
         with:
           ghc-version: 8.10.4 # stack.yamlのresolverに合わせて更新してください
           enable-stack: true
